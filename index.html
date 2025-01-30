@@ -1,0 +1,243 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Video</title>
+    <style>
+        body {
+            background-color: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+         .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+          }
+
+        .video-container {
+            text-align: center; /* Center the video within the container */
+        }
+
+        video {
+            max-width: 100%; /* Prevent video from overflowing its container */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+       
+
+        button {
+          position: absolute;
+          top: calc(50% + 100px); /* Calculate the position */
+          left: 50%;
+          transform: translateX(-50%); /* Center horizontally */
+          z-index: 1; /* Bring the button to the front */
+          padding: 10px 20px;
+          background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <video muted autoplay loop width="800" >
+            <source src="Comp 2.mp4" type="video/mp4">
+            <source src="Comp 2.webm" type="video/webm">  Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="container">
+            <button>Click Me</button>
+    </div>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Password Input</title>
+<style>
+
+
+body {
+            background-color: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  video {
+    max-width: 70%;
+    height: auto;
+  }
+
+  .password-container {
+    position: absolute;
+    top: calc(50% + 140px); /* Calculate the position */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 1; /* Bring the button to the front */
+    display: flex; /* Use flexbox for input and button */
+    align-items: center; /* Vertically align input and button */
+    font-color: #f4f4f4;
+    font-size: 10px;
+    transition: opacity 0.5s ease-in-out; /* Transition for fade-out */
+  }
+
+  input[type="password"] {
+    padding: 10px;
+    width: 200px;
+    border-radius: 20px; /* Round only the left corners */
+    flex-grow: 1; /* Allow input to expand */
+    border: 0;
+    outline: none;
+    background: #fff;
+    margin-right: 12px;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease-in-out; /* Transition for fade-out */
+  }
+
+  
+  input[type="password"]::placeholder {
+  color: #bebebe; /* Change the color */
+  font-size: 14px; /* Change the font size */
+  font-family: Arial, Helvetica, sans-serif;
+  padding:4px;
+  letter-spacing: 0.5px
+}
+
+
+
+
+  #ctaButton {
+    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-image: url("sharklight.png"); /* Replace with your image path */
+    background-repeat: no-repeat;
+    background-position: center; /* Adjust position as needed */
+    background-size: 30px;
+    height: 36px; 
+    width: 60px;
+
+  }
+
+
+  #ctaButton:hover {
+    background-color: #000;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-image: url("sharkdark.png"); /* Replace with your image path */
+    background-repeat: no-repeat;
+    background-position: center; /* Adjust position as needed */
+    background-size: 30px;
+
+}
+
+  #viewButton {
+    position: absolute;
+    top: calc(50% + 140px); /* Calculate the position */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 1; /* Bring the button to the front */
+    padding: 10px 20px;
+    width: 300px;
+    border-radius: 20px;  
+    display: none;
+    background-color: #000; /* Blue color for "View" button */
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1; /* Bring the button to the front */
+    font-size: 14px; /* Change the font size */
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+/*    opacity: 0;*/
+    transition: opacity 0.5s ease-in-out; /* Transition for fade-out */
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <video muted autoplay loop>
+    <source src="Comp 2.mp4" type="video/mp4">
+    <source src="Comp 2.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="password-container" id="passwordContainer">
+    <input type="password" id="passwordInput" placeholder="Password">
+    <button id="ctaButton"></button>
+  </div>
+
+  <a href="https://docs.google.com/presentation/d/116ZmDU_ak7QWtRgoWCJ9hj2ZLcDPf1FV_x4ocPsY6Z8/edit#slide=id.g2af34654ce3_0_1865">
+  <button id="viewButton">View</button>
+  </a>
+  
+  
+</div>
+
+<script>
+  const passwordInput = document.getElementById('passwordInput');
+  const ctaButton = document.getElementById('ctaButton');
+  const viewButton = document.getElementById('viewButton');
+  const passwordContainer = document.getElementById('passwordContainer');
+
+  const correctPassword = "1234"; // Replace with your actual password
+
+  ctaButton.addEventListener('click', () => {
+    const enteredPassword = passwordInput.value;
+    if (enteredPassword === correctPassword) {
+      passwordContainer.style.opacity = '0';
+      // viewButton.style.display = 'inline';
+      // viewButton.style.opacity = '1';
+      setTimeout(() => {
+      passwordContainer.style.display = 'none';  // Hide after transition
+
+      setTimeout(() => {  // Delay before opacity transition
+        viewButton.style.display = 'inline'; // Make visible
+        viewButton.style.opacity = 0; // set opacity to 0 first
+        viewButton.style.visibility = 'visible'; // Make element take space
+        viewButton.style.opacity = 1; // Start opacity transition 
+      }, 200); // Delay before fade-in (adjust as needed)
+    }, 1000); // Match fade-out transition duration
+
+    } else {
+      alert("Incorrect password."); // Or display an error message in the page
+    }
+  });
+
+  viewButton.addEventListener('click', () => {
+    viewButton.style.opacity = '0.8'
+  });
+</script>
+
+</body>
+</html>
